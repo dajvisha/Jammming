@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [],
-      playlistName: 'New Playlist',
+      playlistName: 'My playlist',
       playlistTracks: []
     }
     this.addTrack = this.addTrack.bind(this);
@@ -48,9 +48,10 @@ class App extends Component {
     const trackURIs = this.state.playlistTracks.map(playlistTrack => playlistTrack.uri);
     Spotify.savePlaylist(this.state.playlistName, trackURIs);
     this.setState({
-      searchResults: []
+      searchResults: [],
+      playlistName: 'My playlist',
+      playlistTracks: []
     });
-    this.updatePlaylistName('My playlist');
   }
 
   search(term) {
